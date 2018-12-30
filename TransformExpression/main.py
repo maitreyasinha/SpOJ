@@ -5,7 +5,7 @@ n,output = int(input()),""
 
 def convert(charGen):
     heap = []
-
+ 
     for c in charGen:
         if c in string.ascii_lowercase:
             heap.append(c)
