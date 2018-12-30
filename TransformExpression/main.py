@@ -37,12 +37,15 @@ output = ""
 def convert2(chargen):
     heap = []
 
-    global output
     for c in chargen:
         if c in string.ascii_lowercase:
             heap.append(c)
         elif c in "+,-,*,/,^".split(","):
-            heap.append(convert2(chargen))
+            nextchar = next(chargen)
+            if nextchar=="(":
+                heap.append(convert2(chargen))
+            else:
+                heap.append(nextchar)
             heap.append(c)
         elif c=="(":
             heap.append(convert2(chargen))
@@ -50,8 +53,8 @@ def convert2(chargen):
             return heap
     return heap
 
-# _input = "((b+(a+c))^(c+d)"
-_input = "(a+b)"
+_input = "(b+(a+c))^(c+d)"
+# _input = "(a+b)"
 gen = (i for i in _input)
 output = convert2(gen)
 # print("".join(output))
