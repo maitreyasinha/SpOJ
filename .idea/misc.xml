@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python" project-jdk-type="Python SDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="SbtLocalSettings">
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$/../scalaAndroid7" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../scalaAndroid8" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../scalaAndroid9" value="PREVIEW" />
+        <entry key="$USER_HOME$/project/Workspace/scalaAndroid4" value="PREVIEW" />
+        <entry key="$USER_HOME$/project/Workspace/scalaAndroid5" value="PREVIEW" />
+      </map>
+    </option>
+  </component>
+  <component name="ScalaSbtSettings">
+    <option name="customVMEnabled" value="true" />
+    <option name="customVMPath" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home" />
+  </component>
+</project>
