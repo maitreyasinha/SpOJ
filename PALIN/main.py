@@ -1,24 +1,44 @@
 n, output = int(input()), ""
 
+def add(li):
+    if li==[]:
+        return ["1"]
+    elif li[-1]=="9":
+        return add(li[:-1])+["0"]
+    else:
+        li[-1]= str(int(li[-1])+1)
+        return li
+
 def createPalindrome(num):
-    oldNum = num.copy()
     length = len(num)
     center = int((len(num))/2)
-    # center = center-1 if length%2 else center
 
     createNum = lambda x:int("".join(x))
 
     if length%2 == 0:
-        if createNum(num[:center]) <= createNum(num[length:center-1:-1]):
-            num[center-1] = str( createNum(num[center-1])+1 )
-        num[length:center-1:-1] = num[:center]
+        left,right = num[:center], num[length:center-1:-1]
+        print("left",left,"right",right)
+
+        for char in range(center):
+            increment_flag=True
+            if left[-1-char] < right[char]:
+                increment_flag = True
+                break
+            elif left[i]> right[i]:
+                increment_flag = False
+                break
+            else:
+                continue
+
+        if increment_flag:
+            print("left >> ",add(left), add(left)[-2::-1])
+            return add(left) + add(left)[-2::-1]
+        else:
+            return left + left[::-1]
     else:
         if createNum(num[:center]) <= createNum(num[length:center:-1]):
-            num[center] = str( createNum(num[center])+1 )
-        num[length:center:-1] = num[:center]
-
-    return num
-
+            assignment = list(str(createNum(num[:center]) + 1))
+        return assignment + assignment[::-1]
 
 for i in range(n):
     _input = list(input())
