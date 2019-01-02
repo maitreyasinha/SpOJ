@@ -14,16 +14,16 @@ def compare(num1, num2):
 
 def increment(num1):
     if len(num1) == 0:
-        return ["1"]
+        return "1"
     elif num1[-1] == "9":
-        return increment(num1[:-1])+["0"]
+        return increment(num1[:-1])+"0"
     else:
-        return num1[:-1] + [str(int(num1[-1])+1)]
+        return num1[:-1] + str(int(num1[-1])+1)
 
 
 def convert(num):
-    if num == ["9"]:
-        return ["1", "1"]
+    if num == "9":
+        return "11"
     center = int(len(num)/2)
     left = num[:center]
     if len(num)%2 == 0:
@@ -36,7 +36,15 @@ def convert(num):
 
 for i in range(n):
     _inp = input()
-    output = output + "\n" + "".join(convert(_inp))
+    while True:
+        if not _inp:
+            break
+        elif _inp[0] == "0":
+            _inp=_inp[1:]
+        else:
+            break
+    x = convert(_inp)
+    output = output + "\n" + x
 
 
 print(output)
