@@ -1,4 +1,4 @@
-n, output = int(input()), ""
+
 
 
 def compare(num1, num2):
@@ -13,7 +13,7 @@ def compare(num1, num2):
 
 def increment(num1):
     c = 1
-    if num1[-c]!="9":
+    if num1[-c] != "9":
         return num1[:-c]+str(int(num1[-c])+1)
     while num1[-c] == "9":
         num1 = num1[:-c]+"0"+(num1[-c+1:len(num1)] if c!=1 else "")
@@ -26,29 +26,29 @@ def increment(num1):
 
 def convert(num):
     if num == "9":
-        return "11"
+        return list("11")
     center = int(len(num)/2)
     left = num[:center]
     if len(num)%2 == 0:
         left = increment(left) if compare(left, num[center::]) else left
-        return left + left[-1-len(left)+len(num[center:])::-1]
+        return list(left + left[-1-len(left)+len(num[center:])::-1])
     else:
         left = increment(num[:center+1]) if compare(left, num[center+1::]) else num[:center+1]
-        return left + left[-2-len(left) + center + 1::-1]
+        return list(left + left[-2-len(left) + center + 1::-1])
 
+path = '/Users/maitreyasinha/Workspace/SpOJ/PALIN/stdin.in.txt'
+import sys,io, time
+std_in = "".join(open(path).readlines())
+sys.stdin = io.StringIO(std_in)
 
+start_time = time.time()
+
+n, output = int(input()), []
 for i in range(n):
     _inp = input()
+    output.append( convert(_inp))
 
-    while True:
-        if not _inp:
-            break
-        elif _inp[0] == "0":
-            _inp=_inp[1:]
-        else:
-            break
+for i in output:
+    print("".join(i))
 
-    output = output + "\n" + convert(_inp)
-
-
-print(output)
+print("\nElapsed_time :", time.time() - start_time)
