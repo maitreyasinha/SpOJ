@@ -17,7 +17,6 @@ def createPalindrome(num):
 
     if length%2 == 0:
         left,right = num[:center], num[length:center-1:-1]
-        print("left",left,"right",right)
 
         for char in range(center):
             increment_flag=True
@@ -31,7 +30,6 @@ def createPalindrome(num):
                 continue
 
         if increment_flag:
-            print("left >> ",add(left), add(left)[-2::-1])
             return add(left) + add(left)[-2::-1]
         else:
             return left + left[::-1]

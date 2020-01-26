@@ -84,7 +84,13 @@ def create_tree5():
     stree = tree = TreeNext(ch, None,None)
     while iteration == True:
         try:
-            ch = next(gen)
+
+            if ch == "(":
+                tree = create_tree5()
+                pass
+            elif ch == ")":
+                return tree
+
             tree.right = TreeNext(ch, tree, None)
             tree = tree.right
         except StopIteration:
@@ -93,5 +99,4 @@ def create_tree5():
     return stree
 
 stree = create_tree5()
-
-tree
+stree
